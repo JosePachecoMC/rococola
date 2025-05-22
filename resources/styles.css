@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'Huntrela';
+  src: url('resources/fonts/Huntrela.otf');
+}
+@font-face {
+  font-family: 'Geoform-Heavy';
+  src: url('resources/fonts/Geoform-Heavy.otf');
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.menu-background {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(218, 161, 86);
+  display: flex;               /* Flex para alinear contenido */
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  fill: rgb(126, 55, 7);
+  transition: transform 3s;
+}
+
+.logo:hover {
+  transform: scale(1.10);
+}
+
+.rococola {
+  font-family: Huntrela, sans-serif;
+  color: rgb(126, 55, 7);
+  font-size: 1.5rem;
+  margin-left: 0;
+  transition: transform 3s;
+}
+.rococola:hover {
+  transform: scale(1.10);
+}
+
+.bM1 {
+  padding: 0.4rem 1rem;
+  background-color: rgb(126, 55, 7);
+  border-radius: 10px;
+  font-family: Geoform-Heavy, sans-serif;
+  color: wheat;
+  font-size: 0.4rem;
+  white-space: nowrap;
+  transition: transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.bM1:hover {
+  transform: scale(1.1);
+}
+
+.background {
+  width: 100%;
+  transition: 5s;
+}
+.menu {
+  padding: 0.4rem 1rem;
+  background-color: rgba(211, 110, 43, 0.726);
+  border: 2px solid wheat;       /* Aquí se agrega el borde */
+  border-radius: 10px;
+  font-family: Geoform-Heavy, sans-serif;
+  color: wheat;
+  font-size: 30px;
+  white-space: nowrap;
+  transition: transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+
+
+.footer {
+  background-color: rgb(126, 55, 7);
+  color: wheat;
+  padding: 20px 10%;
+  font-family: Geoform-Heavy, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo .logo {
+  width: 30px;
+  height: 30px;
+  fill: wheat;
+}
+
+.footer-brand {
+  font-family: Huntrela, sans-serif;
+  font-size: 1.3rem;
+  color: wheat;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: wheat;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: rgb(218, 161, 86);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  border-top: 1px solid wheat;
+  padding-top: 10px;
+}
+.footer-aboutUs{
+  font-family: Geoform-Heavy, sans-serif;
+}

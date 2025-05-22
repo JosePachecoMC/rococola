@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafeterías Cercanas</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="icon" href="resources/img/rococola-favicon.ico" type="image/x-icon">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+
+<div id="map">Cargando mapa...</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Crear el mapa
+      const map = L.map('map').setView([lat, lon], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      // Marcador del usuario
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup("Tú estás aquí").openPopup();
+
+      // Buscar cafeterías cercanas con Overpass API (OpenStreetMap)
+      const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node(around:1000,${lat},${lon})[amenity=cafe];out;`;
+
+      const response = await fetch(overpassUrl);
+      const data = await response.json();
+
+      data.elements.forEach(cafe => {
+        L.marker([cafe.lat, cafe.lon]).addTo(map)
+          .bindPopup(cafe.tags.name || "Rococola Coffee");
+      });
+
+    }, () => {
+      alert("No pudimos obtener tu ubicación.");
+    });
+  } else {
+    alert("Tu navegador no soporta geolocalización.");
+  }
+</script>
+
+</body>
+</html>
